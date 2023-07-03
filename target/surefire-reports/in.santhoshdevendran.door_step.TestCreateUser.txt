@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: in.santhoshdevendran.door_step.TestCreateUser
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in in.santhoshdevendran.door_step.TestCreateUser
+in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithinValidDataInput()  Time elapsed: 0.008 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.Exception to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:71)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
+	at in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithinValidDataInput(TestCreateUser.java:37)
+
