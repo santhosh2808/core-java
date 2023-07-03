@@ -7,7 +7,7 @@ public class User {
 		return firstname;
 	}
 
-	public void setFirstname(String firstname) {
+	public  void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
 
@@ -63,7 +63,7 @@ public class User {
 	String email;
 	String password;
 	int id;
-	boolean isActive;
+	boolean isActive = true ;
 
 	public String fullName() {
 		return firstname.concat(" ").concat(lastname);
