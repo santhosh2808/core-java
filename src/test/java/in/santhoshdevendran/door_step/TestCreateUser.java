@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import in.santhoshdevendran.door_step.exception.ValidationException;
 import in.santhoshdevendran.door_step.model.User;
 import in.santhoshdevendran.door_step.service.UserService;
 
@@ -34,7 +35,7 @@ public class TestCreateUser {
 
 	public void testCreateUserWithInvalidData() {
 		UserService userService = new UserService();
-		Exception exception = assertThrows(Exception.class, () -> {
+		Exception exception = assertThrows(ValidationException.class, () -> {
 			userService.create(null);
 		});
 		String expectedMessage = "invalid user input";
@@ -46,7 +47,7 @@ public class TestCreateUser {
 
 	public void testCreateUserWithEmailNull() {
 		UserService userService = new UserService();
-		Exception exception = assertThrows(Exception.class, () -> {
+		Exception exception = assertThrows(ValidationException.class, () -> {
 
 			User newUser = new User();
 			newUser.setId(12345);
@@ -58,7 +59,7 @@ public class TestCreateUser {
 
 			userService.create(newUser);
 		});
-		String expectedMessage = "Email Cannot be Null or Empty";
+		String expectedMessage = "email cannot be null or empty";
 		String actualMessage = exception.getMessage();
 		assertTrue(expectedMessage.equals(actualMessage));
 	}
@@ -67,7 +68,7 @@ public class TestCreateUser {
 
 	public void testCreateUserWithEmailEmpty() {
 		UserService userService = new UserService();
-		Exception exception = assertThrows(Exception.class, () -> {
+		Exception exception = assertThrows(ValidationException.class, () -> {
 
 			User newUser = new User();
 			newUser.setId(12345);
@@ -79,7 +80,88 @@ public class TestCreateUser {
 
 			userService.create(newUser);
 		});
-		String expectedMessage = "Email Cannot be Null or Empty";
+		String expectedMessage = "email cannot be null or empty";
+		String actualMessage = exception.getMessage();
+		assertTrue(expectedMessage.equals(actualMessage));
+	}
+	
+	@Test
+
+	public void testCreateUserWithPasswordEmpty() {
+		UserService userService = new UserService();
+		Exception exception = assertThrows(ValidationException.class, () -> {
+			User newUser = new User();
+			newUser.setId(12345);
+			newUser.setFirstname("Santhosh");
+			newUser.setLastname("devendran");
+			newUser.setEmail("sandy@gmail.com");
+			newUser.setPassword("");
+			newUser.setActive(true);
+			userService.create(newUser);
+		});
+		String expectedMessage = "Password cannot be null or empty";
+		String actualMessage = exception.getMessage();
+		assertTrue(expectedMessage.equals(actualMessage));
+	}
+	
+	
+@Test
+
+	public void testCreateUserWithPasswordNull() {
+		UserService userService = new UserService();
+		Exception exception = assertThrows(ValidationException.class, () -> {
+			User newUser = new User();
+			newUser.setId(12345);
+			newUser.setFirstname("Santhosh");
+			newUser.setLastname("devendran");
+			newUser.setEmail("sandy@gmail.com");
+			newUser.setPassword(null);
+			newUser.setActive(true);
+			userService.create(newUser);
+		});
+		String expectedMessage = "Password cannot be null or empty";
+		String actualMessage = exception.getMessage();
+		assertTrue(expectedMessage.equals(actualMessage));
+	}
+	
+@Test
+
+	public void testCreateUserWithFirstnameEmpty() {
+		UserService userService = new UserService();
+		Exception exception = assertThrows(ValidationException.class, () -> {
+			User newUser = new User();
+			newUser.setId(12345);
+			newUser.setFirstname("");
+			newUser.setLastname("devendran");
+			newUser.setEmail("sandy@gmail.com");
+			newUser.setPassword("asdf@123");
+			newUser.setActive(true);
+			userService.create(newUser);
+		});
+		String expectedMessage = "Firstname cannot be null or empty";
+		String actualMessage = exception.getMessage();
+		assertTrue(expectedMessage.equals(actualMessage));
+	}
+	
+	
+	
+	
+	
+@Test
+
+	public void testCreateUserWithFirstnameNull() {
+		UserService userService = new UserService();
+		Exception exception = assertThrows(ValidationException.class, () -> {
+			User newUser = new User();
+			newUser.setId(12345);
+			newUser.setFirstname(null);
+			newUser.setLastname("devendran");
+			newUser.setEmail("sandy@gmail.com");
+			newUser.setPassword("asdf@123");
+			newUser.setActive(true);
+			userService.create(newUser);
+		});
+		String expectedMessage = "Firstname cannot be null or empty";
 		String actualMessage = exception.getMessage();
 		assertTrue(expectedMessage.equals(actualMessage));
 	}

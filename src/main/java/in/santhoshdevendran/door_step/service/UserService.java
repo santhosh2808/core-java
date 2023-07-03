@@ -1,5 +1,6 @@
 package in.santhoshdevendran.door_step.service;
 
+import in.santhosh.devendran.door_step.validation.UserValidator;
 import in.santhoshdevendran.door_step.dao.UserDAO;
 //import in.santhoshdevendran.door_step.dao.UserList;
 import in.santhoshdevendran.door_step.model.User;
@@ -20,8 +21,8 @@ public class UserService {
 	}
 
 	public void create(User newUser) throws Exception{
-
 		
+		UserValidator.validate(newUser);
 
 		UserDAO userDAO = new UserDAO();
 		userDAO.create(newUser);
