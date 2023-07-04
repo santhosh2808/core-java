@@ -59,7 +59,7 @@ public class TestCreateUser {
 
 			userService.create(newUser);
 		});
-		String expectedMessage = "email cannot be null or empty";
+		String expectedMessage = "email cannot be Null or Empty";
 		String actualMessage = exception.getMessage();
 		assertTrue(expectedMessage.equals(actualMessage));
 	}
@@ -80,7 +80,7 @@ public class TestCreateUser {
 
 			userService.create(newUser);
 		});
-		String expectedMessage = "email cannot be null or empty";
+		String expectedMessage = "email cannot be Null or Empty";
 		String actualMessage = exception.getMessage();
 		assertTrue(expectedMessage.equals(actualMessage));
 	}
@@ -99,7 +99,7 @@ public class TestCreateUser {
 			newUser.setActive(true);
 			userService.create(newUser);
 		});
-		String expectedMessage = "Password cannot be null or empty";
+		String expectedMessage = "Password cannot be Null or Empty";
 		String actualMessage = exception.getMessage();
 		assertTrue(expectedMessage.equals(actualMessage));
 	}
@@ -119,7 +119,7 @@ public class TestCreateUser {
 			newUser.setActive(true);
 			userService.create(newUser);
 		});
-		String expectedMessage = "Password cannot be null or empty";
+		String expectedMessage = "Password cannot be Null or Empty";
 		String actualMessage = exception.getMessage();
 		assertTrue(expectedMessage.equals(actualMessage));
 	}
@@ -138,7 +138,7 @@ public class TestCreateUser {
 			newUser.setActive(true);
 			userService.create(newUser);
 		});
-		String expectedMessage = "Firstname cannot be null or empty";
+		String expectedMessage = "Firstname cannot be Null or Empty";
 		String actualMessage = exception.getMessage();
 		assertTrue(expectedMessage.equals(actualMessage));
 	}
@@ -161,7 +161,7 @@ public class TestCreateUser {
 			newUser.setActive(true);
 			userService.create(newUser);
 		});
-		String expectedMessage = "Firstname cannot be null or empty";
+		String expectedMessage = "Firstname cannot be Null or Empty";
 		String actualMessage = exception.getMessage();
 		assertTrue(expectedMessage.equals(actualMessage));
 	}

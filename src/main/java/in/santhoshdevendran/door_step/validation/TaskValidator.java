@@ -14,6 +14,7 @@ public class TaskValidator {
 
 		StringUtil.rejectInvalidString(task.getName(), "Taskname");
 		StringUtil.rejectIfInvalidDate(task.getDueDate(), "Due Date");
+		
 
 }
 }

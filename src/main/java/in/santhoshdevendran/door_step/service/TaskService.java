@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 
 import in.santhoshdevendran.door_step.dao.TaskDAO;
 import in.santhoshdevendran.door_step.model.Task;
+import in.santhoshdevendran.door_step.validation.TaskValidator;
+import in.santhoshdevendran.door_step.validation.UserValidator;
 
 public class TaskService {
 
@@ -37,7 +39,7 @@ public class TaskService {
 
 	public void create(Task newTask) throws Exception{
 		
-		
+		TaskValidator.validate(newTask);
 
 		TaskDAO taskdao = new TaskDAO();
 		taskdao.create(newTask);
