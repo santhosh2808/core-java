@@ -2,6 +2,13 @@ package in.santhoshdevendran.door_step.model;
 
 public class User {
 
+	String firstname;
+	String lastname;
+	String email;
+	String password;
+	int id;
+	boolean isActive = true ;
+
 	
 	public String getFirstname() {
 		return firstname;
@@ -58,12 +65,7 @@ public class User {
 		return "User Detils  Name = " + firstname +" "+ lastname + ", Email = " + email + ", Password = " + password
 				+ ", User id = " + id + ", isActive = " + isActive;
 	}
-	String firstname;
-	String lastname;
-	String email;
-	String password;
-	int id;
-	boolean isActive = true ;
+	
 
 	public String fullName() {
 		return firstname.concat(" ").concat(lastname);

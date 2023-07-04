@@ -1,10 +1,10 @@
-package in.santhosh.devendran.door_step.validation;
+package in.santhoshdevendran.door_step.validation;
 
 
 
-import in.santhosh.devendran.door_step.util.StringUtil;
 import in.santhoshdevendran.door_step.exception.ValidationException;
 import in.santhoshdevendran.door_step.model.User;
+import in.santhoshdevendran.door_step.util.StringUtil;
 
 public class UserValidator {
 

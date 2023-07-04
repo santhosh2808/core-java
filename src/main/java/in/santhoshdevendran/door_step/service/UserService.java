@@ -1,9 +1,9 @@
 package in.santhoshdevendran.door_step.service;
 
-import in.santhosh.devendran.door_step.validation.UserValidator;
 import in.santhoshdevendran.door_step.dao.UserDAO;
 //import in.santhoshdevendran.door_step.dao.UserList;
 import in.santhoshdevendran.door_step.model.User;
+import in.santhoshdevendran.door_step.validation.UserValidator;
 
 public class UserService {
 
@@ -45,6 +45,25 @@ public class UserService {
 	}
 	
 	public void delete() {
+
+		UserDAO userDAO = new UserDAO();
+	
+		userDAO.delete(12345);
+		
+	}	
+	public void findById() {
+
+		UserDAO userDAO = new UserDAO();
+	
+		userDAO.findById(12345);
+		
+	}	
+	
+	public void findByEmail() {
+
+		UserDAO userDAO = new UserDAO();
+	
+		userDAO.findByEmail("santhosh@gmail.com");
 		
 	}
 
