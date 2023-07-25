@@ -37,9 +37,9 @@ public class UserService {
 
 	}
 
-	public void findById(int newId) {
+	public User findById(int newId) {
 
-		userdao.findById(newId);
+		return userdao.findById(newId);
 
 	}
 

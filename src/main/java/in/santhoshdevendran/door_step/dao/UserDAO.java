@@ -17,40 +17,69 @@ public class UserDAO implements UserInterface {
 	@Override
 	public void create(User user) {
 
-		List<User> userList = UserList.ListOfUsers;
+		
+		Connection con = null;
+		PreparedStatement ps = null;
+		
 
-		boolean userExists = false;
+		try {
+			String query = "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?);";
+			con = ConnectionUtil.getConnection();
+			ps = con.prepareStatement(query);
+			ps.setString(1,user.getFirstname() );
+			ps.setString(2,user.getLastname() );
+			ps.setString(3,user.getEmail() );
+			ps.setString(4,user.getPassword() );
+			ps.executeUpdate();
+	
+			
 
-		Iterator<User> iterator = userList.iterator();
-		while (iterator.hasNext()) {
-			User existingUser = iterator.next();
-			if (existingUser == null) {
-				iterator.remove();
-				userList.add(user);
-				userExists = true;
-				break;
-			}
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+		} finally {
+			ConnectionUtil.close(con, ps);
 		}
 
-		if (!userExists) {
-			userList.add(user);
-		}
+	
 	}
 
 	public User findById(int userId) {
-		List<User> userList = UserList.ListOfUsers;
-		User matchedUser = null;
+		Connection con = null;
+		PreparedStatement ps = null;
+		User user = null;
+		ResultSet rs = null;
 
-		for (User newUser : userList) {
+		try {
+			String query = "SELECT * FROM users WHERE is_active=1 AND id = ? ";
+			con = ConnectionUtil.getConnection();
+			ps = con.prepareStatement(query);			
+			ps.setInt(1, userId);
+			rs = ps.executeQuery();
+	
 
-			User user = newUser;
-			if (user.getId() == userId) {
-				matchedUser = user;
-				break;
+			if (rs.next()) {
+
+				user = new User();
+
+				user.setId(rs.getInt("id"));
+				user.setFirstname(rs.getString("first_name"));
+				user.setLastname(rs.getString("last_name"));
+				user.setEmail(rs.getString("email"));
+				user.setActive(rs.getBoolean("is_active"));
+				user.setPassword(rs.getString("password"));
+
 			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+		} finally {
+			ConnectionUtil.close(con, ps, rs);
 		}
-		System.out.println(matchedUser);
-		return matchedUser;
+
+		return user;
+
 	}
 
 	public User findByEmail(String userEmail) {
@@ -118,43 +147,40 @@ public class UserDAO implements UserInterface {
 	}
 
 	public List<User> findAll() throws RuntimeException {
-		return UserList.ListOfUsers;
-		//		Connection con=null;
-//		PreparedStatement ps=null;
-//		List<User> userList=new ArrayList<>();
-//		ResultSet rs=null;
-//		
-//		try {
-//			String query="SELECT * FROM Users WHEARE isActive = 1";
-//		con=ConnectionUtil.getConnection();
-//		ps= con.prepareStatement(query);
-//		
-//		rs=ps.executeQuery(query);
-//		
-//		
-//		
-//		while(rs.next()) {
-//			User user=new User();
-//			user.setId(rs.getInt("id"));
-//			user.setFirstname(rs.getString("firstName"));
-//			user.setLastname(rs.getString("lastName"));
-//			user.setEmail(rs.getString("email"));
-//			user.setActive(rs.getBoolean("isActive"));
-//			user.setPassword(rs.getString("password"));
-//			
-//			userList.add(user);
-//		}
-//			
-//		}catch(SQLException e) {
-//			System.out.println(e.getMessage());
-//			throw new RuntimeException();
-//		}finally{
-//			ConnectionUtil.close(con, ps, rs);
-//		}
-//		
-//		return userList;
-//
-//	}
+		// return UserList.ListOfUsers;
+		Connection con = null;
+		PreparedStatement ps = null;
+		List<User> userList = new ArrayList<>();
+		ResultSet rs = null;
 
-}
+		try {
+			String query = "SELECT * FROM users WHERE is_active = 1";
+			con = ConnectionUtil.getConnection();
+			ps = con.prepareStatement(query);
+
+			rs = ps.executeQuery(query);
+
+			while (rs.next()) {
+				User user = new User();
+				user.setId(rs.getInt("id"));
+				user.setFirstname(rs.getString("first_name"));
+				user.setLastname(rs.getString("last_name"));
+				user.setEmail(rs.getString("email"));
+				user.setActive(rs.getBoolean("is_active"));
+				user.setPassword(rs.getString("password"));
+
+				userList.add(user);
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+		} finally {
+			ConnectionUtil.close(con, ps, rs);
+		}
+
+		return userList;
+
+	}
+
 }

@@ -20,8 +20,8 @@ public class ConnectionUtil {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			 connection = DriverManager.getConnection(
 			  "jdbc:mysql://aws.connect.psdb.cloud/door_step?sslMode=VERIFY_IDENTITY",
-			  "80713p7yomwfwb72m6c8",
-			  "pscale_pw_PIAsZbzOXAZPV2OMACtu2kleTOuzkKFusbniob6QiSx");
+			  "mslr4a192tu99m0qlf2b",
+			  "pscale_pw_H4JcjmyCy2zQk2QusmpO0UTAYFLn20sKkP39dqDULAB");
 
 
 		} catch (Exception e) {
