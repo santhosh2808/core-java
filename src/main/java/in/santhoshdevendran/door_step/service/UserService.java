@@ -30,7 +30,7 @@ public class UserService {
 		userdao.update(newId, newUser);
 
 	}
-
+	
 	public void delete(int Id) {
 
 		userdao.delete(Id);

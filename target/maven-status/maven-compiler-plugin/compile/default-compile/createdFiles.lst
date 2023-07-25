@@ -8,6 +8,7 @@ in\santhoshdevendran\door_step\service\TaskService.class
 in\santhoshdevendran\door_step\dao\TaskDAO.class
 in\santhoshdevendran\door_step\model\User.class
 in\santhoshdevendran\door_step\validation\UserValidator.class
+in\santhoshdevendran\door_step\util\ConnectionUtil.class
 in\santhoshdevendran\door_step\dao\TaskList.class
 in\santhoshdevendran\door_step\App.class
 in\santhoshdevendran\door_step\model\UserEntity.class

@@ -1,8 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: in.santhoshdevendran.door_step.TestCreateUser
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in in.santhoshdevendran.door_step.TestCreateUser
-in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithEmailNull()  Time elapsed: 0 s  <<< FAILURE!
+Tests run: 9, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 2.418 s <<< FAILURE! - in in.santhoshdevendran.door_step.TestCreateUser
+in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithInvalidData()  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
+	at in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithInvalidData(TestCreateUser.java:43)
+
+in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithEmailNull()  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
@@ -10,19 +18,18 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
 	at in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithEmailNull(TestCreateUser.java:64)
 
-in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithEmailEmpty()  Time elapsed: 0 s  <<< FAILURE!
+in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithExistingEmail()  Time elapsed: 0.694 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected in.santhoshdevendran.door_step.exception.ValidationException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:71)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
+	at in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithExistingEmail(TestCreateUser.java:93)
+
+in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithEmailEmpty()  Time elapsed: 0.002 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
 	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
 	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
 	at in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithEmailEmpty(TestCreateUser.java:85)
-
-in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithInvalidData()  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
-	at in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithInvalidData(TestCreateUser.java:43)
 

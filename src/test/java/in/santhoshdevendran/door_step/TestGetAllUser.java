@@ -1,11 +1,14 @@
 package in.santhoshdevendran.door_step;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import in.santhoshdevendran.door_step.exception.ValidationException;
 import in.santhoshdevendran.door_step.model.User;
 import in.santhoshdevendran.door_step.service.UserService;
 
@@ -30,6 +33,7 @@ public class TestGetAllUser {
 		
 	}
 	
+	
 //	@Test
 //	
 //	public void create() {
@@ -48,6 +52,8 @@ public class TestGetAllUser {
 //
 //	});
 //	}
+	
+	
 	
 
 }
