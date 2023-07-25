@@ -2,28 +2,17 @@ package in.santhoshdevendran.door_step.service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.time.format.DateTimeFormatter;
 
 import in.santhoshdevendran.door_step.dao.TaskDAO;
 import in.santhoshdevendran.door_step.model.Task;
 import in.santhoshdevendran.door_step.validation.TaskValidator;
 import in.santhoshdevendran.door_step.validation.UserValidator;
-
+import in.santhoshdevendran.door_step.exception.ValidationException;
 public class TaskService {
+	TaskDAO taskDAO = new TaskDAO();
 
-	
-	public Task[] getAll() {
-
-		TaskDAO taskdao = new TaskDAO();
-
-		Task[] taskList = taskdao.findAllTask();
-
-		for (int i = 0; i < taskList.length; i++) {
-			System.out.println(taskList[i]);
-		}
-		return taskList;
-
-	}
-	
 	public static LocalDate convertToDate(String dateString) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -36,44 +25,46 @@ public class TaskService {
 		}
 	}
 
+	public void create(Task task) throws Exception {
 
-	public void create(Task newTask) throws Exception{
-		
-		TaskValidator.validate(newTask);
+		TaskValidator.validate(task);
 
-		TaskDAO taskdao = new TaskDAO();
-		taskdao.create(newTask);
+		taskDAO.create(task);
 
 	}
-	
-	public void update() {
-		
-	
-		Task updatenewTask = new Task();
-		updatenewTask.setId(56789);
-		updatenewTask.setName("work");
-		updatenewTask.setDueDate(null);
-		updatenewTask.setActive(true);
-		
-		TaskDAO taskdao = new TaskDAO();
-		taskdao.update(updatenewTask);
-	}
-	
-	public void delete() {
 
-		TaskDAO taskdao = new TaskDAO();
-	
-		taskdao.delete(12345);
-		
-	}	
-	public void findById() {
+	public void update(int id, Task updatedTask) throws ValidationException {
 
-		TaskDAO taskdao = new TaskDAO();
-	
-		taskdao.findById(12345);
-		
+		TaskValidator.validate(updatedTask);
+
+		taskDAO.update(id, updatedTask);
+
 	}
 
+	public void delete(int id) {
+
+		taskDAO.delete(id);
+
+	}
+
+	public void findById(int id) {
+
+		taskDAO.findById(id);
+
+	}
+
+	public int count() {
+		return taskDAO.count();
+
+	}
+
+	public List<Task> getAll() {
+
+		List<Task> TaskList = taskDAO.findAll();
+
+		return TaskList;
+
+	}
 
 
 }

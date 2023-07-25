@@ -2,7 +2,10 @@ package in.santhoshdevendran.door_step.dao;
 
 import in.santhoshdevendran.door_step.model.Task;
 
-public class TaskList {
+import java.util.ArrayList;
+import java.util.List;
 
-	public static Task[] ListOfTask = new Task[5];
+
+public class TaskList {
+	public static List<Task> taskList = new ArrayList<Task>();
 }

@@ -24,10 +24,10 @@ public class TestCreateTask {
 
 		Task newTask = new Task();
 
-		newTask.setId(12345);
+		newTask.setTaskID(12345);
 		String userInput = "23/07/2023";
 
-		newTask.setName("Open the Door");
+		newTask.setTaskName("Open the Door");
 		LocalDate convertedDate = TaskService.convertToDate(userInput);
 		newTask.setDueDate(convertedDate);
 		newTask.setActive(true);
@@ -56,10 +56,10 @@ public class TestCreateTask {
 
 			Task newTask = new Task();
 
-			newTask.setId(12345);
+			newTask.setTaskID(12345);
 			String userInput = "23/07/2023";
 
-			newTask.setName(null);
+			newTask.setTaskName(null);
 			LocalDate convertedDate = TaskService.convertToDate(userInput);
 			newTask.setDueDate(convertedDate);
 			newTask.setActive(true);
@@ -78,9 +78,9 @@ public class TestCreateTask {
 
 			Task newTask = new Task();
 
-			newTask.setId(12345);
+			newTask.setTaskID(12345);
 			String userInput = "23/07/2023";
-			newTask.setName("");
+			newTask.setTaskName("");
 			LocalDate convertedDate = TaskService.convertToDate(userInput);
 			newTask.setDueDate(convertedDate);
 			newTask.setActive(true);
@@ -99,10 +99,10 @@ public class TestCreateTask {
 
 			Task newTask = new Task();
 
-			newTask.setId(99999);
+			newTask.setTaskID(99999);
 			String userInput = "23/07/2022";
 
-			newTask.setName("Close The Door");
+			newTask.setTaskName("Close The Door");
 			LocalDate convertedDate = TaskService.convertToDate(userInput);
 			newTask.setDueDate(convertedDate);
 			newTask.setActive(true);

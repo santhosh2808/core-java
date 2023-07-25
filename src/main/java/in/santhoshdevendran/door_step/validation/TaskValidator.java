@@ -5,16 +5,18 @@ import in.santhoshdevendran.door_step.model.Task;
 import in.santhoshdevendran.door_step.util.StringUtil;
 
 public class TaskValidator {
-	
-	public static void validate(Task task) throws ValidationException {
+public static void validate(Task newTask) throws ValidationException {
 		
-		if(task == null) {
+		if(newTask == null) {
 			throw new ValidationException("Invalid Task Input");
 		}
 
-		StringUtil.rejectInvalidString(task.getName(), "Taskname");
-		StringUtil.rejectIfInvalidDate(task.getDueDate(), "Due Date");
+		StringUtil.rejectIfInvalidString(newTask.getTaskName(), "Taskname");
+		StringUtil.rejectIfInvalidDate(newTask.getDueDate(), "Due Date");
+		
+		
 		
 
-}
+	}
+
 }

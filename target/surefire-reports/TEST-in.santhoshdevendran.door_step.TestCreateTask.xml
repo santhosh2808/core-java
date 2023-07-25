@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.santhoshdevendran.door_step.TestCreateUser" time="0.001" tests="8" errors="0" skipped="0" failures="3">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.santhoshdevendran.door_step.TestCreateTask" time="0.074" tests="5" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,36 +58,24 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithFirstnameEmpty" classname="in.santhoshdevendran.door_step.TestCreateUser" time="0"/>
-  <testcase name="in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithFirstnameNull" classname="in.santhoshdevendran.door_step.TestCreateUser" time="0"/>
-  <testcase name="in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithEmailNull" classname="in.santhoshdevendran.door_step.TestCreateUser" time="0">
-    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
-	at in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithEmailNull(TestCreateUser.java:64)
-]]></failure>
+  <testcase name="in.santhoshdevendran.door_step.TestCreateTask.testCreateTaskWithTaskNameEmpty" classname="in.santhoshdevendran.door_step.TestCreateTask" time="0.03"/>
+  <testcase name="in.santhoshdevendran.door_step.TestCreateTask.testCreateTaskWithValidData" classname="in.santhoshdevendran.door_step.TestCreateTask" time="0.034">
+    <failure message="Unexpected exception thrown: in.santhoshdevendran.door_step.exception.ValidationException: Due Date can not be in the Past" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Unexpected exception thrown: in.santhoshdevendran.door_step.exception.ValidationException: Due Date can not be in the Past
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.santhoshdevendran.door_step.TestCreateTask.testCreateTaskWithValidData(TestCreateTask.java:35)
+Caused by: in.santhoshdevendran.door_step.exception.ValidationException: Due Date can not be in the Past
+	at in.santhoshdevendran.door_step.util.StringUtil.rejectIfInvalidDate(StringUtil.java:17)
+	at in.santhoshdevendran.door_step.validation.TaskValidator.validate(TaskValidator.java:15)
+	at in.santhoshdevendran.door_step.service.TaskService.create(TaskService.java:30)
+	at in.santhoshdevendran.door_step.TestCreateTask.lambda$testCreateTaskWithValidData$0(TestCreateTask.java:36)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
+</failure>
   </testcase>
-  <testcase name="in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithEmailEmpty" classname="in.santhoshdevendran.door_step.TestCreateUser" time="0">
-    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
-	at in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithEmailEmpty(TestCreateUser.java:85)
-]]></failure>
-  </testcase>
-  <testcase name="in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithInvalidData" classname="in.santhoshdevendran.door_step.TestCreateUser" time="0">
-    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
-	at in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithInvalidData(TestCreateUser.java:43)
-]]></failure>
-  </testcase>
-  <testcase name="in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithPasswordNull" classname="in.santhoshdevendran.door_step.TestCreateUser" time="0"/>
-  <testcase name="in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithValidDataInput" classname="in.santhoshdevendran.door_step.TestCreateUser" time="0"/>
-  <testcase name="in.santhoshdevendran.door_step.TestCreateUser.testCreateUserWithPasswordEmpty" classname="in.santhoshdevendran.door_step.TestCreateUser" time="0"/>
+  <testcase name="in.santhoshdevendran.door_step.TestCreateTask.testCreateTaskWithTaskNameNull" classname="in.santhoshdevendran.door_step.TestCreateTask" time="0"/>
+  <testcase name="in.santhoshdevendran.door_step.TestCreateTask.testCreateTaskWithInvalidData" classname="in.santhoshdevendran.door_step.TestCreateTask" time="0"/>
+  <testcase name="in.santhoshdevendran.door_step.TestCreateTask.testCreateTaskWithInvalidDate" classname="in.santhoshdevendran.door_step.TestCreateTask" time="0.001"/>
 </testsuite>

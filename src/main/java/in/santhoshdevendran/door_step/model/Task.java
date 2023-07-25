@@ -2,48 +2,17 @@ package in.santhoshdevendran.door_step.model;
 
 import java.time.LocalDate;
 
-public class Task {
-	
-	String name;
-	int     id;
-	LocalDate dueDate;
-	boolean isActive;
-	
-	public String getName() {
-		return name;
-	}
+public class Task extends TaskEntity {
 
-	public  void setName(String name) {
-		this.name = name;
-	}
-	
-	public LocalDate getDueDate() {
-		return dueDate;
-	}
-	public void setDueDate(LocalDate dueDate) {
+	public Task(int taskID, String taskName, LocalDate dueDate, boolean isActive) {
+		super();
+		this.taskID = taskID;
+		this.taskName = taskName;
 		this.dueDate = dueDate;
-	}
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public boolean isActive() {
-		return isActive;
-	}
-
-	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 
-	
+	public Task() {
 
-	@Override
-	
-	public String toString() {
-		return "task Detils  Name = "+ name +", task id = " + id + ", isActive = " + isActive +", Duedate : "+dueDate;
 	}
 }
