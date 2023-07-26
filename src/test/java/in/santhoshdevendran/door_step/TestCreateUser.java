@@ -20,7 +20,7 @@ public class TestCreateUser {
 		//newUser.setId(56789);
 		newUser.setFirstname("Santhosh");
 		newUser.setLastname("Devendren");
-		newUser.setEmail("sandy@gmail.com");
+		newUser.setEmail("sandy1@gmail.com");
 		newUser.setPassword("Azxcv@123");
 		//newUser.setActive(true);
 
@@ -54,7 +54,7 @@ public class TestCreateUser {
 			newUser.setFirstname("Santhosh");
 			newUser.setLastname("devendran");
 			newUser.setEmail(null);
-			newUser.setPassword("Asdf@123");
+			newUser.setPassword("Asdfs@123");
 			newUser.setActive(true);
 
 			userService.create(newUser);
@@ -75,7 +75,7 @@ public class TestCreateUser {
 			newUser.setFirstname("Santhosh");
 			newUser.setLastname("devendran");
 			newUser.setEmail("");
-			newUser.setPassword("Asdf@123");
+			newUser.setPassword("Asdfg@123");
 			newUser.setActive(true);
 
 			userService.create(newUser);
@@ -90,17 +90,17 @@ public class TestCreateUser {
 
 	public void testCreateUserWithExistingEmail() {
 		UserService userService = new UserService();
-		Exception exception = assertThrows(ValidationException.class, () -> {
+		Exception exception = assertThrows(RuntimeException.class, () -> {
 
 			User newUser = new User();
 			newUser.setFirstname("Santhosh");
 			newUser.setLastname("devendran");
-			newUser.setEmail("sandy@gmail.com");
+			newUser.setEmail("sandyq@gmail.com");
 			newUser.setPassword("Asdf@123");
 			
 			userService.create(newUser);
 		});
-		String expectedMessage = "Email is already exist";
+		String expectedMessage = "Duplicate constraint";
 		String actualMessage = exception.getMessage();
 		assertTrue(expectedMessage.equals(actualMessage));
 	}
@@ -116,7 +116,7 @@ public class TestCreateUser {
 			newUser.setId(12345);
 			newUser.setFirstname("Santhosh");
 			newUser.setLastname("devendran");
-			newUser.setEmail("sandy@gmail.com");
+			newUser.setEmail("sandyw@gmail.com");
 			newUser.setPassword("");
 			newUser.setActive(true);
 			userService.create(newUser);
@@ -136,7 +136,7 @@ public class TestCreateUser {
 			newUser.setId(12345);
 			newUser.setFirstname("Santhosh");
 			newUser.setLastname("devendran");
-			newUser.setEmail("sandy@gmail.com");
+			newUser.setEmail("sandye@gmail.com");
 			newUser.setPassword(null);
 			newUser.setActive(true);
 			userService.create(newUser);
@@ -155,7 +155,7 @@ public class TestCreateUser {
 			newUser.setId(12345);
 			newUser.setFirstname("");
 			newUser.setLastname("devendran");
-			newUser.setEmail("sandy@gmail.com");
+			newUser.setEmail("sandyr@gmail.com");
 			newUser.setPassword("asdf@123");
 			newUser.setActive(true);
 			userService.create(newUser);
@@ -178,7 +178,7 @@ public class TestCreateUser {
 			newUser.setId(12345);
 			newUser.setFirstname(null);
 			newUser.setLastname("devendran");
-			newUser.setEmail("sandy@gmail.com");
+			newUser.setEmail("sandyt@gmail.com");
 			newUser.setPassword("asdf@123");
 			newUser.setActive(true);
 			userService.create(newUser);

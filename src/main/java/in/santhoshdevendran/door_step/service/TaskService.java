@@ -1,6 +1,9 @@
 package in.santhoshdevendran.door_step.service;
 
+import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.time.format.DateTimeFormatter;
@@ -10,6 +13,7 @@ import in.santhoshdevendran.door_step.model.Task;
 import in.santhoshdevendran.door_step.validation.TaskValidator;
 import in.santhoshdevendran.door_step.validation.UserValidator;
 import in.santhoshdevendran.door_step.exception.ValidationException;
+
 public class TaskService {
 	TaskDAO taskDAO = new TaskDAO();
 
@@ -23,6 +27,19 @@ public class TaskService {
 			System.out.println("Invalid date format!");
 			return null;
 		}
+	}
+
+	public static Date convertDate(LocalDate newDate) {
+		LocalDateTime localDateTime = newDate.atStartOfDay();
+		Date date = (Date) Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+		return date;
+
+	}
+
+	public static LocalDate convertSqlDateToLocalDate(Date sqlDate) {
+		java.sql.Date c = (java.sql.Date) sqlDate;
+		java.util.Date utilDate = new java.util.Date(c.getTime());
+		return utilDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 	}
 
 	public void create(Task task) throws Exception {
@@ -47,9 +64,9 @@ public class TaskService {
 
 	}
 
-	public void findById(int id) {
+	public Task findById(int id) {
 
-		taskDAO.findById(id);
+		return taskDAO.findById(id);
 
 	}
 
@@ -66,5 +83,11 @@ public class TaskService {
 
 	}
 
+	public List<Task> getByDate(LocalDate date) {
+		List<Task> TaskList = taskDAO.findByDate(date);
+
+		return TaskList;
+
+	}
 
 }
