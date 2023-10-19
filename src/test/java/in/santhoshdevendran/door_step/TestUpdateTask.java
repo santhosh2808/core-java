@@ -15,7 +15,7 @@ public class TestUpdateTask {
 
 		Task newTask = new Task();
 
-		String userInput = "27/07/2023";
+		String userInput = "09/08/2023";
 
 		newTask.setTaskName("Open the Door");
 		LocalDate convertedDate = TaskService.convertToDate(userInput);

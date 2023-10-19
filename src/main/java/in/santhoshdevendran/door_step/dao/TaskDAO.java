@@ -86,8 +86,8 @@ public class TaskDAO implements TaskInterface {
 			if (rs.next()) {
 				newTask = new Task();
 				newTask.setTaskID(rs.getInt("id"));
-				newTask.setTaskName(rs.getString("task_name"));
-				LocalDate date = TaskService.convertSqlDateToLocalDate(rs.getDate("duedate"));
+				newTask.setTaskName(rs.getString("name"));
+				LocalDate date = TaskService.convertSqlDateToLocalDate(rs.getDate("due_date"));
 				newTask.setDueDate(date);
 				newTask.setActive(rs.getBoolean("is_active"));
 				
@@ -184,8 +184,8 @@ public class TaskDAO implements TaskInterface {
 			while (rs.next()) {
 				Task newTask = new Task();
 				newTask.setTaskID(rs.getInt("id"));
-				newTask.setTaskName(rs.getString("task_name"));
-				LocalDate date = TaskService.convertSqlDateToLocalDate(rs.getDate("duedate"));
+				newTask.setTaskName(rs.getString("name"));
+				LocalDate date = TaskService.convertSqlDateToLocalDate(rs.getDate("due_date"));
 				newTask.setDueDate(date);
 				newTask.setActive(rs.getBoolean("is_active"));
 				
@@ -220,8 +220,8 @@ public class TaskDAO implements TaskInterface {
 			if (rs.next()) {
 				Task newTask = new Task();
 				newTask.setTaskID(rs.getInt("id"));
-				newTask.setTaskName(rs.getString("task_name"));
-				LocalDate lastDate = TaskService.convertSqlDateToLocalDate(rs.getDate("duedate"));
+				newTask.setTaskName(rs.getString("name"));
+				LocalDate lastDate = TaskService.convertSqlDateToLocalDate(rs.getDate("due_date"));
 				newTask.setDueDate(lastDate);
 				newTask.setActive(rs.getBoolean("is_active"));
 				

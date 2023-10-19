@@ -2,7 +2,7 @@ package in.santhoshdevendran.door_step.util;
 
 import java.time.LocalDate;
 import in.santhoshdevendran.door_step.exception.ValidationException;
-import in.santhoshdevendran.door_step.exception.ValidationException;
+
 public class StringUtil {
 
 	public static void rejectIfInvalidString(String input, String inputName) throws ValidationException {
